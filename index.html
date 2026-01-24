@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Kitten Games | Уютные игры для души</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ceylon-brown: #7D5A50;
+            --matcha-green: #96AD90;
+            --creamy-white: #FDFBF7;
+            --soft-accent: #E8D5C4;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--creamy-white);
+            color: var(--ceylon-brown);
+            scroll-behavior: smooth;
+        }
+
+        .handwritten {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .bg-matcha {
+            background-color: var(--matcha-green);
+        }
+
+        .text-matcha {
+            color: var(--matcha-green);
+        }
+
+        .border-matcha {
+            border-color: var(--matcha-green);
+        }
+
+        .bg-ceylon {
+            background-color: var(--ceylon-brown);
+        }
+
+        .text-ceylon {
+            color: var(--ceylon-brown);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(125, 90, 80, 0.1), 0 8px 10px -6px rgba(125, 90, 80, 0.05);
+        }
+
+        .rounded-xl-custom {
+            border-radius: 2rem;
+        }
+
+        /* Анимация парения для логотипа */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .pixel-border {
+            border: 4px solid var(--ceylon-brown);
+            box-shadow: 4px 4px 0px var(--matcha-green);
+        }
+
+        .nav-link:hover {
+            color: var(--matcha-green);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Навигация -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div
+            class="max-w-6xl mx-auto flex justify-between items-center bg-white/80 backdrop-blur-md px-8 py-3 rounded-full card-shadow border border-soft-accent">
+            <div class="flex items-center gap-2">
+                <span class="text-xl font-extrabold tracking-tight">Tea Kitten <span
+                        class="text-matcha">Games</span></span>
+            </div>
+            <div class="hidden md:flex gap-8 font-semibold">
+                <a href="#about" class="nav-link transition-all">О нас</a>
+                <a href="#games" class="nav-link transition-all">Наши игры</a>
+                <a href="#values" class="nav-link transition-all">Ценности</a>
+                <a href="#community" class="nav-link transition-all">Сообщество</a>
+            </div>
+            <button class="bg-matcha text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition-opacity">
+                Заварить чай ☕
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    Пространство, где <br>
+                    <span class="text-matcha">душа отдыхает</span>
+                </h1>
+                <p class="text-xl mb-8 text-ceylon/80 max-w-lg">
+                    Мы создаем уютные инди-игры, которые ощущаются как теплый плед и чашка любимого чая. Место для тех,
+                    кто ищет вдохновение, а не стресс.
+                </p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#games"
+                        class="bg-ceylon text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-shadow">Смотреть
+                        проекты</a>
+                    <a href="#about"
+                        class="border-2 border-ceylon px-8 py-4 rounded-full font-bold text-lg hover:bg-ceylon hover:text-white transition-all">Наша
+                        философия</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative flex justify-center">
+                <!-- Стилизованное лого через SVG и Эмодзи -->
+                <div class="w-80 h-80 bg-soft-accent rounded-full flex items-center justify-center relative float-anim">
+                    <div class="text-9xl">🐱</div>
+                    <div class="absolute bottom-4 right-4 text-6xl">🍵</div>
+                    <!-- Декоративный пар -->
+                    <div class="absolute top-10 flex gap-2">
+                        <span class="text-3xl opacity-40">✨</span>
+                        <span class="text-2xl opacity-40 mt-4">✨</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Декоративные элементы -->
+        <div class="absolute top-20 right-0 -z-10 opacity-10">
+            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#96AD90"
+                    d="M44.7,-76.4C58.3,-69.2,70.1,-57.4,78.2,-43.5C86.3,-29.6,90.7,-13.8,88.4,1.3C86.1,16.4,77.1,30.8,66.8,43.2C56.5,55.5,44.9,65.8,31.5,72.4C18.1,79,3,81.9,-12.4,79.8C-27.8,77.6,-43.5,70.4,-56.3,59.8C-69.1,49.2,-79.1,35.2,-83.4,19.6C-87.6,4,-86.1,-13.2,-79.5,-28.7C-72.9,-44.1,-61.2,-57.8,-47.2,-64.8C-33.2,-71.8,-16.6,-72.1,0.4,-72.7C17.4,-73.4,31.1,-83.6,44.7,-76.4Z"
+                    transform="translate(100 100)" />
+            </svg>
+        </div>
+    </header>
+
+    <!-- Секция О нас -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <span
+                class="bg-matcha/10 text-matcha px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Миссия
+                студии</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Мы — Внимательный Хозяин <br> Вашего маленького
+                игрового кафе</h2>
+            <p class="text-lg leading-relaxed mb-12">
+                Привет, друзья! Мы заварили свежие новости... Tea Kitten Games — это не просто разработка. Мы верим, что
+                игры — это современная форма чаепития: способ замедлиться и насладиться моментом. Мы не боимся
+                показывать процесс (даже если котенок запутался в проводах багов!) и ценим искренний диалог с вами.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div
+                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
+                    <div class="text-3xl mb-4">🌱</div>
+                    <h3 class="font-bold text-xl mb-2">Искренность</h3>
+                    <p class="text-sm opacity-80">Показываем всё: от первых черновиков до финальных пикселей.</p>
+                </div>
+                <div
+                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
+                    <div class="text-3xl mb-4">🐾</div>
+                    <h3 class="font-bold text-xl mb-2">Тактильность</h3>
+                    <p class="text-sm opacity-80">Наши игры ощущаются «ручными», теплыми и живыми.</p>
+                </div>
+                <div
+                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
+                    <div class="text-3xl mb-4">🧶</div>
+                    <h3 class="font-bold text-xl mb-2">Любопытство</h3>
+                    <p class="text-sm opacity-80">Исследуем новые механики, сохраняя домашний уют.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Игр -->
+    <section id="games" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-4 italic handwritten text-matcha">Наши проекты</h2>
+                    <p class="max-w-md opacity-80 text-lg">Пиксельное искусство, в котором хочется остаться жить.</p>
+                </div>
+                <div class="flex gap-2">
+                    <span class="text-sm font-bold uppercase tracking-tighter opacity-50">Эстетика пикселя как
+                        выбор</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Проект 1 -->
+                <div class="group bg-white rounded-xl-custom overflow-hidden card-shadow border border-soft-accent">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
+                            alt="Pixel Forest"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm">В разработке
+                                ✨</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 italic">Forest Tea Shop</h3>
+                        <p class="mb-6 opacity-75">Медитативный симулятор лесного кафе, где вы выращиваете травы для чая
+                            и слушаете истории усталых путников-зверей.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Pixel
+                                    Art</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Cozy</span>
+                            </div>
+                            <button
+                                class="text-ceylon font-bold flex items-center gap-2 hover:gap-3 transition-all">Подробнее
+                                <span>→</span></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="group bg-white rounded-xl-custom overflow-hidden card-shadow border border-soft-accent">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80"
+                            alt="Home garden"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm">Анонс скоро
+                                🧶</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-3 italic">Kitten's Nap Journey</h3>
+                        <p class="mb-6 opacity-75">Пазл-приключение о котенке, который ищет самое мягкое и теплое место
+                            в огромном доме, полном загадок и солнечных зайчиков.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Hand-drawn</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Puzzle</span>
+                            </div>
+                            <button
+                                class="text-ceylon font-bold flex items-center gap-2 hover:gap-3 transition-all">Подробнее
+                                <span>→</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Ценностей RENEW -->
+    <section id="values" class="py-20 px-6 bg-ceylon text-white rounded-t-[4rem]">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-extrabold mb-16 text-center italic handwritten">Наш фундамент (RENEW)</h2>
+            <div class="grid md:grid-cols-5 gap-6">
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        R</div>
+                    <h4 class="font-bold mb-2">Rules</h4>
+                    <p class="text-xs opacity-70">Прозрачность и открытый диалог.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        E</div>
+                    <h4 class="font-bold mb-2">Expectations</h4>
+                    <p class="text-xs opacity-70">Уют без токсичности.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        N</div>
+                    <h4 class="font-bold mb-2">Norms</h4>
+                    <p class="text-xs opacity-70">Верность качественному пиксель-арту.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        E</div>
+                    <h4 class="font-bold mb-2">Ethics</h4>
+                    <p class="text-xs opacity-70">Уважение времени игрока.</p>
+                </div>
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                        W</div>
+                    <h4 class="font-bold mb-2">Warmth</h4>
+                    <p class="text-xs opacity-70">Поддержка в каждом сообщении.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сообщество / Подвал -->
+    <section id="community" class="py-24 px-6 bg-matcha text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="text-6xl mb-8">☕️🐾✨</div>
+            <h2 class="text-4xl font-extrabold mb-6">Присоединяйтесь к чаепитию</h2>
+            <p class="text-xl mb-10 opacity-90">Заходите в наш Discord, чтобы следить за разработкой, делиться
+                фотографиями своих котов и первым узнавать о тестах.</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#"
+                    class="bg-white text-matcha px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center gap-3">
+                    Discord <span>💬</span>
+                </a>
+                <a href="#"
+                    class="bg-white text-matcha px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center gap-3">
+                    Steam <span>🎮</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-soft-accent text-center bg-white">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-extrabold text-xl">Tea Kitten <span class="text-matcha">Games</span></div>
+            <p class="text-sm opacity-60">© 2024 Tea Kitten Games. Сделано с теплом и любовью. 🐾</p>
+            <div class="flex gap-6 opacity-60 text-sm font-bold">
+                <a href="#" class="hover:text-matcha">Privacy</a>
+                <a href="#" class="hover:text-matcha">Press Kit</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Небольшой скрипт для плавного появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
