@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tea Kitten Games | Уютные игры для души</title>
+    <title>Tea Kitten Games | Cozy Games for the Soul</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -14,10 +14,12 @@
             --matcha-green: #96AD90;
             --creamy-white: #FDFBF7;
             --soft-accent: #E8D5C4;
+            --peach-soft: #FFD8CC;
+            --waver-color: #96AD90;
         }
 
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--creamy-white);
             color: var(--ceylon-brown);
             scroll-behavior: smooth;
@@ -48,316 +50,328 @@
         }
 
         .card-shadow {
-            box-shadow: 0 10px 25px -5px rgba(125, 90, 80, 0.1), 0 8px 10px -6px rgba(125, 90, 80, 0.05);
+            box-shadow: 0 15px 35px -5px rgba(125, 90, 80, 0.08), 0 10px 15px -6px rgba(125, 90, 80, 0.04);
         }
 
-        .rounded-xl-custom {
-            border-radius: 2rem;
+        .rounded-3xl-custom {
+            border-radius: 2.5rem;
         }
 
-        /* Анимация парения для логотипа */
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
 
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .float-anim {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .pixel-border {
-            border: 4px solid var(--ceylon-brown);
-            box-shadow: 4px 4px 0px var(--matcha-green);
-        }
 
         .nav-link:hover {
             color: var(--matcha-green);
             transform: translateY(-2px);
         }
+
+        /* Wavy Divider */
+        .wavy-divider {
+            position: relative;
+            height: 100px;
+            width: 100%;
+            background: var(--creamy-white);
+        }
+
+        .wavy-divider svg {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+        }
+
+        .wave-fill-matcha {
+            fill: var(--matcha-green);
+        }
+
+        .wave-fill-white {
+            fill: #ffffff;
+        }
+
+        /* Reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-wholesome {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-wholesome:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(125, 90, 80, 0.15);
+        }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased overflow-x-hidden">
 
-    <!-- Навигация -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 px-6 py-4">
         <div
-            class="max-w-6xl mx-auto flex justify-between items-center bg-white/80 backdrop-blur-md px-8 py-3 rounded-full card-shadow border border-soft-accent">
-            <div class="flex items-center gap-2">
-                <span class="text-xl font-extrabold tracking-tight">Tea Kitten <span
-                        class="text-matcha">Games</span></span>
+            class="max-w-6xl mx-auto flex justify-between items-center bg-white/90 backdrop-blur-lg px-8 py-3 rounded-full card-shadow border border-soft-accent/30">
+            <div class="flex items-center gap-3">
+                <img src="logo.png" alt="Tea Kitten Logo" class="w-10 h-10 object-contain">
+                <span class="text-xl font-bold tracking-tight">Tea Kitten <span class="text-matcha">Games</span></span>
             </div>
-            <div class="hidden md:flex gap-8 font-semibold">
-                <a href="#about" class="nav-link transition-all">О нас</a>
-                <a href="#games" class="nav-link transition-all">Наши игры</a>
-                <a href="#values" class="nav-link transition-all">Ценности</a>
-                <a href="#community" class="nav-link transition-all">Сообщество</a>
+            <div class="hidden md:flex items-center gap-8">
+                <div class="flex gap-10 font-semibold items-center mr-6">
+                    <a href="#games" class="nav-link transition-all">Games</a>
+                    <a href="#about" class="nav-link transition-all">About</a>
+                </div>
+                <div
+                    class="flex items-center gap-5 bg-creamy-white/50 px-6 py-2 rounded-full border border-soft-accent/20">
+                    <span class="text-xs font-bold uppercase tracking-wider opacity-60">Join us for a cup of tea</span>
+                    <div class="flex gap-4 items-center">
+                        <a href="https://x.com/TeaKittenGames" target="_blank"
+                            class="text-ceylon/60 hover:text-matcha transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                        <a href="mailto:contact@teakittengames.com"
+                            class="text-ceylon/60 hover:text-matcha transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <button class="bg-matcha text-white px-6 py-2 rounded-full font-bold hover:opacity-90 transition-opacity">
-                Заварить чай ☕
-            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <header class="relative pt-48 pb-32 px-6 bg-gradient-to-b from-soft-accent/20 to-creamy-white overflow-hidden">
+        <!-- Decorative circles -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-matcha/5 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -right-24 w-64 h-64 bg-peach-soft/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
             <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                    Пространство, где <br>
-                    <span class="text-matcha">душа отдыхает</span>
+                <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                    A Space Where <br>
+                    <span class="text-matcha italic handwritten">Your Soul Rests</span>
                 </h1>
-                <p class="text-xl mb-8 text-ceylon/80 max-w-lg">
-                    Мы создаем уютные инди-игры, которые ощущаются как теплый плед и чашка любимого чая. Место для тех,
-                    кто ищет вдохновение, а не стресс.
+                <p class="text-xl mb-10 text-ceylon/80 max-w-lg leading-relaxed">
+                    We create cozy games that embrace you. Tea Kitten Games is a warm blanket in the world of digital
+                    entertainment.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                <div class="flex flex-wrap justify-center md:justify-start gap-5">
                     <a href="#games"
-                        class="bg-ceylon text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-shadow">Смотреть
-                        проекты</a>
+                        class="bg-ceylon text-white px-10 py-4 rounded-full font-bold text-lg btn-wholesome">Our
+                        Games</a>
                     <a href="#about"
-                        class="border-2 border-ceylon px-8 py-4 rounded-full font-bold text-lg hover:bg-ceylon hover:text-white transition-all">Наша
-                        философия</a>
+                        class="bg-white text-ceylon border border-soft-accent px-10 py-4 rounded-full font-bold text-lg btn-wholesome">Our
+                        Philosophy</a>
                 </div>
             </div>
-            <div class="md:w-1/2 relative flex justify-center">
-                <!-- Стилизованное лого через SVG и Эмодзи -->
-                <div class="w-80 h-80 bg-soft-accent rounded-full flex items-center justify-center relative float-anim">
-                    <div class="text-9xl">🐱</div>
-                    <div class="absolute bottom-4 right-4 text-6xl">🍵</div>
-                    <!-- Декоративный пар -->
-                    <div class="absolute top-10 flex gap-2">
-                        <span class="text-3xl opacity-40">✨</span>
-                        <span class="text-2xl opacity-40 mt-4">✨</span>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <!-- Main logo -->
+                    <div class="w-72 md:w-96">
+                        <img src="logo.png" alt="Tea Kitten Games" class="w-full h-auto">
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Декоративные элементы -->
-        <div class="absolute top-20 right-0 -z-10 opacity-10">
-            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#96AD90"
-                    d="M44.7,-76.4C58.3,-69.2,70.1,-57.4,78.2,-43.5C86.3,-29.6,90.7,-13.8,88.4,1.3C86.1,16.4,77.1,30.8,66.8,43.2C56.5,55.5,44.9,65.8,31.5,72.4C18.1,79,3,81.9,-12.4,79.8C-27.8,77.6,-43.5,70.4,-56.3,59.8C-69.1,49.2,-79.1,35.2,-83.4,19.6C-87.6,4,-86.1,-13.2,-79.5,-28.7C-72.9,-44.1,-61.2,-57.8,-47.2,-64.8C-33.2,-71.8,-16.6,-72.1,0.4,-72.7C17.4,-73.4,31.1,-83.6,44.7,-76.4Z"
-                    transform="translate(100 100)" />
-            </svg>
         </div>
     </header>
 
-    <!-- Секция О нас -->
-    <section id="about" class="py-20 px-6 bg-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <span
-                class="bg-matcha/10 text-matcha px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">Миссия
-                студии</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Мы — Внимательный Хозяин <br> Вашего маленького
-                игрового кафе</h2>
-            <p class="text-lg leading-relaxed mb-12">
-                Привет, друзья! Мы заварили свежие новости... Tea Kitten Games — это не просто разработка. Мы верим, что
-                игры — это современная форма чаепития: способ замедлиться и насладиться моментом. Мы не боимся
-                показывать процесс (даже если котенок запутался в проводах багов!) и ценим искренний диалог с вами.
+
+
+    <!-- Games Section -->
+    <section id="games" class="py-24 px-6 bg-creamy-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-5xl font-bold mb-6 italic handwritten text-matcha">Our Games</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Project 1: Chaos inside me -->
+                <div
+                    class="group bg-white rounded-3xl-custom overflow-hidden card-shadow border border-soft-accent/20 reveal">
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="chaos_inside_me.png" alt="Chaos inside me"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/50 to-transparent">
+                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm inline-block">In
+                                Development
+                                🛋️</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-4">Chaos inside me</h3>
+                        <p class="mb-6 opacity-75 text-lg leading-relaxed">A cozy point & click puzzle where you act as
+                            a psychotherapist tidying up the "internal houses" of your patients. Rearrange artifacts of
+                            memory to turn trauma into peace.</p>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start gap-3">
+                                <span class="text-matcha mt-1">✨</span>
+                                <p class="text-sm opacity-80 leading-snug"><b>Metaphorical Healing:</b> Your actions are
+                                    direct metaphors for the therapeutic process.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-matcha mt-1">✨</span>
+                                <p class="text-sm opacity-80 leading-snug"><b>The Shadow:</b> An innovative mechanic
+                                    where your internal critic creates subtle obstacles.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Point &
+                                    Click</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Mystery</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Psychology</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Fluffy Workshop -->
+                <div
+                    class="group bg-white rounded-3xl-custom overflow-hidden card-shadow border border-soft-accent/20 reveal">
+                    <div class="h-80 relative overflow-hidden">
+                        <img src="fluffy_workshop.png" alt="Fluffy Workshop"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/50 to-transparent">
+                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm inline-block">In
+                                Development 🛋️</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h3 class="text-3xl font-bold mb-4">Fluffy Workshop</h3>
+                        <p class="mb-6 opacity-75 text-lg leading-relaxed">A meditative clicker game where grooming is
+                            just the beginning. Shear adorable animals, collect their wool, and craft unique toys in
+                            your cozy studio.</p>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-start gap-3">
+                                <span class="text-matcha mt-1">🐾</span>
+                                <p class="text-sm opacity-80 leading-snug"><b>Groom & Grow:</b> Meditative shearing
+                                    mechanics with rewarding progression.</p>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <span class="text-matcha mt-1">🐾</span>
+                                <p class="text-sm opacity-80 leading-snug"><b>Toy Crafting:</b> Turn simple wool into
+                                    magical pom-pom toys to fund your upgrades.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Clicker</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Cozy</span>
+                                <span
+                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-full text-xs font-bold">Crafting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wavy Transition -->
+    <div class="wavy-divider -mt-1">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path class="wave-fill-white"
+                d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,144C672,139,768,181,864,197.3C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+            </path>
+        </svg>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 px-6 bg-white relative">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-bold mb-10">Brewing Kindness in Every Pixel</h2>
+            <div class="w-24 h-1 bg-matcha/20 mx-auto mb-10 rounded-full"></div>
+            <p class="text-xl leading-relaxed mb-16 opacity-90">
+                We believe that games are a way to slow down. Tea Kitten Games creates spaces where every player feels
+                at home. No toxicity, just warmth and sincerity.
             </p>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
+            <div class="grid md:grid-cols-3 gap-10 text-left">
                 <div
-                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
-                    <div class="text-3xl mb-4">🌱</div>
-                    <h3 class="font-bold text-xl mb-2">Искренность</h3>
-                    <p class="text-sm opacity-80">Показываем всё: от первых черновиков до финальных пикселей.</p>
+                    class="p-10 rounded-3xl-custom bg-creamy-white border border-soft-accent/30 hover:border-matcha/50 transition-all group">
+                    <div class="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">🌱</div>
+                    <h3 class="font-bold text-2xl mb-4">Sincerity</h3>
+                    <p class="opacity-70 leading-relaxed">We are open in everything — from first sketches to the final
+                        release.</p>
                 </div>
                 <div
-                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
-                    <div class="text-3xl mb-4">🐾</div>
-                    <h3 class="font-bold text-xl mb-2">Тактильность</h3>
-                    <p class="text-sm opacity-80">Наши игры ощущаются «ручными», теплыми и живыми.</p>
+                    class="p-10 rounded-3xl-custom bg-creamy-white border border-soft-accent/30 hover:border-matcha/50 transition-all group">
+                    <div class="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">🐾</div>
+                    <h3 class="font-bold text-2xl mb-4">Tactility</h3>
+                    <p class="opacity-70 leading-relaxed">Our games feel "handmade," warm, and full of life.</p>
                 </div>
                 <div
-                    class="p-8 rounded-xl-custom bg-creamy-white border border-soft-accent hover:border-matcha transition-colors">
-                    <div class="text-3xl mb-4">🧶</div>
-                    <h3 class="font-bold text-xl mb-2">Любопытство</h3>
-                    <p class="text-sm opacity-80">Исследуем новые механики, сохраняя домашний уют.</p>
+                    class="p-10 rounded-3xl-custom bg-creamy-white border border-soft-accent/30 hover:border-matcha/50 transition-all group">
+                    <div class="text-4xl mb-6 group-hover:scale-110 transition-transform inline-block">✨</div>
+                    <h3 class="font-bold text-2xl mb-4">Magic Moments</h3>
+                    <p class="opacity-70 leading-relaxed">We create atmospheres you'll want to linger in for a while
+                        longer.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция Игр -->
-    <section id="games" class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                <div>
-                    <h2 class="text-4xl font-extrabold mb-4 italic handwritten text-matcha">Наши проекты</h2>
-                    <p class="max-w-md opacity-80 text-lg">Пиксельное искусство, в котором хочется остаться жить.</p>
-                </div>
-                <div class="flex gap-2">
-                    <span class="text-sm font-bold uppercase tracking-tighter opacity-50">Эстетика пикселя как
-                        выбор</span>
-                </div>
+
+
+    <footer class="py-16 px-6 bg-white text-ceylon">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="flex items-center gap-4">
+                <img src="logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                <div class="text-2xl font-bold">Tea Kitten <span class="text-matcha">Games</span></div>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Проект 1 -->
-                <div class="group bg-white rounded-xl-custom overflow-hidden card-shadow border border-soft-accent">
-                    <div class="h-64 bg-gray-200 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
-                            alt="Pixel Forest"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm">В разработке
-                                ✨</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 italic">Forest Tea Shop</h3>
-                        <p class="mb-6 opacity-75">Медитативный симулятор лесного кафе, где вы выращиваете травы для чая
-                            и слушаете истории усталых путников-зверей.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex gap-2">
-                                <span
-                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Pixel
-                                    Art</span>
-                                <span
-                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Cozy</span>
-                            </div>
-                            <button
-                                class="text-ceylon font-bold flex items-center gap-2 hover:gap-3 transition-all">Подробнее
-                                <span>→</span></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Проект 2 -->
-                <div class="group bg-white rounded-xl-custom overflow-hidden card-shadow border border-soft-accent">
-                    <div class="h-64 bg-gray-200 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80"
-                            alt="Home garden"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="bg-white/90 px-4 py-2 rounded-full font-bold text-sm shadow-sm">Анонс скоро
-                                🧶</span>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3 italic">Kitten's Nap Journey</h3>
-                        <p class="mb-6 opacity-75">Пазл-приключение о котенке, который ищет самое мягкое и теплое место
-                            в огромном доме, полном загадок и солнечных зайчиков.</p>
-                        <div class="flex justify-between items-center">
-                            <div class="flex gap-2">
-                                <span
-                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Hand-drawn</span>
-                                <span
-                                    class="px-3 py-1 bg-matcha/10 text-matcha rounded-md text-xs font-bold italic">Puzzle</span>
-                            </div>
-                            <button
-                                class="text-ceylon font-bold flex items-center gap-2 hover:gap-3 transition-all">Подробнее
-                                <span>→</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция Ценностей RENEW -->
-    <section id="values" class="py-20 px-6 bg-ceylon text-white rounded-t-[4rem]">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-extrabold mb-16 text-center italic handwritten">Наш фундамент (RENEW)</h2>
-            <div class="grid md:grid-cols-5 gap-6">
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                        R</div>
-                    <h4 class="font-bold mb-2">Rules</h4>
-                    <p class="text-xs opacity-70">Прозрачность и открытый диалог.</p>
-                </div>
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                        E</div>
-                    <h4 class="font-bold mb-2">Expectations</h4>
-                    <p class="text-xs opacity-70">Уют без токсичности.</p>
-                </div>
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                        N</div>
-                    <h4 class="font-bold mb-2">Norms</h4>
-                    <p class="text-xs opacity-70">Верность качественному пиксель-арту.</p>
-                </div>
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                        E</div>
-                    <h4 class="font-bold mb-2">Ethics</h4>
-                    <p class="text-xs opacity-70">Уважение времени игрока.</p>
-                </div>
-                <div class="text-center">
-                    <div
-                        class="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                        W</div>
-                    <h4 class="font-bold mb-2">Warmth</h4>
-                    <p class="text-xs opacity-70">Поддержка в каждом сообщении.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Сообщество / Подвал -->
-    <section id="community" class="py-24 px-6 bg-matcha text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="text-6xl mb-8">☕️🐾✨</div>
-            <h2 class="text-4xl font-extrabold mb-6">Присоединяйтесь к чаепитию</h2>
-            <p class="text-xl mb-10 opacity-90">Заходите в наш Discord, чтобы следить за разработкой, делиться
-                фотографиями своих котов и первым узнавать о тестах.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#"
-                    class="bg-white text-matcha px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center gap-3">
-                    Discord <span>💬</span>
+            <p class="text-sm opacity-60 font-medium">© 2026 Tea Kitten Games. Made with warmth and love. 🐾</p>
+            <div class="flex gap-6 items-center">
+                <a href="https://x.com/TeaKittenGames" target="_blank"
+                    class="text-ceylon/60 hover:text-matcha transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                 </a>
-                <a href="#"
-                    class="bg-white text-matcha px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all flex items-center gap-3">
-                    Steam <span>🎮</span>
+                <a href="mailto:contact@teakittengames.com" class="text-ceylon/60 hover:text-matcha transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                 </a>
-            </div>
-        </div>
-    </section>
 
-    <footer class="py-12 px-6 border-t border-soft-accent text-center bg-white">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="font-extrabold text-xl">Tea Kitten <span class="text-matcha">Games</span></div>
-            <p class="text-sm opacity-60">© 2024 Tea Kitten Games. Сделано с теплом и любовью. 🐾</p>
-            <div class="flex gap-6 opacity-60 text-sm font-bold">
-                <a href="#" class="hover:text-matcha">Privacy</a>
-                <a href="#" class="hover:text-matcha">Press Kit</a>
             </div>
         </div>
     </footer>
 
     <script>
-        // Небольшой скрипт для плавного появления элементов при скролле
+        // Reveal animation on scroll
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('active');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(section);
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>
