@@ -16,7 +16,7 @@
     <title>Tea Kitten Games | Cozy Games for the Soul</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <script>
         tailwind.config = {
@@ -42,14 +42,14 @@
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
+            font-family: 'Nunito', sans-serif;
             background-color: var(--soft-lavender);
             color: var(--night-indigo);
             scroll-behavior: smooth;
         }
 
         .handwritten {
-            font-family: 'Pacifico', cursive;
+            font-family: 'Playfair Display', serif;
         }
 
         .bg-mystic {
@@ -133,7 +133,7 @@
 
         /* Kit form overrides */
         .formkit-form {
-            font-family: 'Quicksand', sans-serif !important;
+            font-family: 'Nunito', sans-serif !important;
             background: transparent !important;
             border: none !important;
             box-shadow: none !important;
@@ -141,7 +141,7 @@
         }
 
         .formkit-form * {
-            font-family: 'Quicksand', sans-serif !important;
+            font-family: 'Nunito', sans-serif !important;
         }
 
         .formkit-field,
@@ -153,7 +153,7 @@
         }
 
         .formkit-input {
-            font-family: 'Quicksand', sans-serif !important;
+            font-family: 'Nunito', sans-serif !important;
             border: 1px solid rgba(123, 94, 167, 0.2) !important;
             border-radius: 9999px !important;
             padding: 12px 24px !important;
@@ -172,7 +172,7 @@
         }
 
         .formkit-submit {
-            font-family: 'Quicksand', sans-serif !important;
+            font-family: 'Nunito', sans-serif !important;
             background-color: #7B5EA7 !important;
             color: #ffffff !important;
             border: none !important;
@@ -272,40 +272,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-48 pb-16 px-6 bg-gradient-to-b from-mystic-purple/10 to-soft-lavender overflow-hidden">
-        <!-- Decorative circles -->
-        <div class="absolute -top-24 -left-24 w-96 h-96 bg-mystic-purple/10 rounded-full blur-3xl"></div>
-        <div class="absolute top-1/2 -right-24 w-64 h-64 bg-celestial-gold/10 rounded-full blur-3xl"></div>
-
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 relative z-10">
-            <div class="md:w-1/2 text-center md:text-left">
-                <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-                    Independent Studio <br>
-                    <span class="text-mystic-purple italic handwritten">Crafting Cozy Magic</span>
-                </h1>
-                <p class="text-xl mb-10 text-night-indigo/80 max-w-lg leading-relaxed">
-                    We are an indie team of dreamers making games that embrace you. Tea Kitten Games is your warm
-                    blanket in the digital world. ✨
-                </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-5">
-                    <a href="#games"
-                        class="bg-mystic-purple text-white px-10 py-4 rounded-full font-bold text-lg btn-wholesome shadow-lg shadow-mystic-purple/20">Our
-                        Games</a>
-                    <a href="#team"
-                        class="bg-white text-mystic-purple border border-mystic-purple/20 px-10 py-4 rounded-full font-bold text-lg btn-wholesome">Our
-                        Team</a>
-                </div>
-            </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <!-- Main logo -->
-                    <div class="w-80 md:w-[32rem] drop-shadow-2xl">
-                        <img src="logo.png" alt="Tea Kitten Games"
-                            class="w-full h-auto transform hover:rotate-3 transition-transform duration-500">
-                    </div>
-                </div>
-            </div>
+    <header>
+        <!-- Banner -->
+        <div class="relative w-full">
+            <img src="banner.png" alt="Tea Kitten Games" class="w-full object-cover" style="max-height: 100vh; object-position: center 10%;">
+            <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-soft-lavender to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-soft-lavender to-transparent"></div>
         </div>
+
     </header>
 
 
@@ -406,7 +380,7 @@
     <!-- Team Section -->
     <section id="team" class="py-24 px-6 bg-white relative">
         <div class="max-w-4xl mx-auto text-center reveal">
-            <h2 class="text-4xl md:text-5xl font-bold mb-10 text-mystic-purple">Our Team</h2>
+            <h2 class="text-4xl md:text-5xl font-bold mb-10 italic handwritten text-mystic-purple">Our Team</h2>
             <div class="w-24 h-1 bg-celestial-gold/30 mx-auto mb-16 rounded-full"></div>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="reveal">
